@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高中生資安素養課程教案(進階版)互動式網頁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc; /* Tailwind gray-50 */
+        }
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            color: #9333ea; /* Tailwind purple-600 */
+            border-color: #9333ea;
+            background-color: #f5f3ff; /* Tailwind purple-50 */
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #9333ea; /* Tailwind purple-600 */
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .card-title svg {
+            margin-right: 0.5rem;
+        }
+        .table-responsive {
+            overflow-x: auto;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            vertical-align: top;
+            color: #475569; /* slate-600 */
+        }
+        th {
+            background-color: #f1f5f9; /* Tailwind slate-100 */
+            color: #1e293b; /* slate-800 */
+        }
+        .highlight {
+            font-weight: 600;
+            color: #334155; /* slate-700 */
+        }
+        .curriculum-code {
+            color: #0d9488; /* Tailwind teal-600 */
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-800">高中生資安素養入門課程</h1>
+            <p class="mt-2 text-lg text-slate-600">「進階版」教案說明</p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="mb-8 border-b border-slate-200">
+            <nav class="-mb-px flex flex-wrap gap-2 sm:gap-4" aria-label="Tabs">
+                <button class="tab-btn active text-slate-600 hover:text-purple-600 whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm sm:text-base rounded-t-lg" data-tab="tab1">課程總覽</button>
+                <button class="tab-btn text-slate-600 hover:text-purple-600 whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm sm:text-base rounded-t-lg" data-tab="tab2">第一堂課</button>
+                <button class="tab-btn text-slate-600 hover:text-purple-600 whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm sm:text-base rounded-t-lg" data-tab="tab3">第二堂課</button>
+                <button class="tab-btn text-slate-600 hover:text-purple-600 whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm sm:text-base rounded-t-lg" data-tab="tab4">第三堂課</button>
+                <button class="tab-btn text-slate-600 hover:text-purple-600 whitespace-nowrap py-3 px-4 border-b-2 font-medium text-sm sm:text-base rounded-t-lg" data-tab="tab5">第四堂課</button>
+            </nav>
+        </div>
+
+        <!-- Tab Content -->
+        <div>
+            <!-- Tab 1: 課程總覽 -->
+            <div id="tab1" class="tab-content active">
+                <div class="card">
+                    <h3 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        課程資訊
+                    </h3>
+                    <ul class="space-y-3 text-slate-700">
+                        <li><strong>課程總時數：</strong> 200分鐘 (共4堂課，每堂50分鐘)</li>
+                        <li><strong>授課地點：</strong> 電腦教室或可連結網路之多媒體教室</li>
+                        <li><strong>授課對象：</strong> 高中生 (多元選修 or AI實驗班)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                        核心理念
+                    </h3>
+                    <p class="text-slate-700 leading-relaxed">本課程旨在引導學生深入理解日常中的資訊安全風險與其背後原理，透過兼具理論深度與實作挑戰的活動，培養學生保護個人數位資產的進階能力，並建立合法、合倫理的資訊科技使用態度，成為具備資安思維的數位公民。</p>
+                </div>
+                
+                <!-- Lesson Overviews -->
+                <div class="card">
+                    <h4 class="text-lg font-semibold text-slate-800 mb-4">【第一堂課】資安初體驗：數位足跡與隱私保衛戰</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <strong class="text-slate-700">學習內容 (108課綱對應)：</strong>
+                            <p class="text-slate-600 pl-4"><span class="curriculum-code">．科-J-A2</span> 資訊科技與人類社會的關係，以及相關的倫理、法律議題（如個人資料保護）。</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-700">學習表現 (108課綱對應)：</strong>
+                            <p class="text-slate-600 pl-4"><span class="curriculum-code">．科U-B1</span> 具備合法、合乎倫理、負責任、安全的資訊科技使用行為與態度。</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-700">教學目標：</strong>
+                            <ul class="list-decimal list-inside pl-4 text-slate-600 space-y-1 mt-1">
+                                <li>能解釋CIA與AAA在資安中的角色。</li>
+                                <li>能運用OSINT技巧進行基礎的公開來源情報搜集。</li>
+                                <li>能說明密碼熵的概念，並比較不同2FA方式的安全性。</li>
+                                <li>能從攻擊者視角理解數位足跡的風險。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4 class="text-lg font-semibold text-slate-800 mb-4">【第二堂課】看不見的陷阱：社交工程與網路釣魚</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <strong class="text-slate-700">學習內容 (108課綱對應)：</strong>
+                            <p class="text-slate-600 pl-4"><span class="curriculum-code">．科-J-A2</span> 網路詐騙、網路釣魚等倫理與法律議題。</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-700">學習表現 (108課綱對應)：</strong>
+                            <p class="text-slate-600 pl-4"><span class="curriculum-code">．科P-A3</span> 辨識、分析問題，並利用資訊科技工具處理、解決問題。</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-700">教學目標：</strong>
+                            <ul class="list-decimal list-inside pl-4 text-slate-600 space-y-1 mt-1">
+                                <li>能將社交工程手法對應到影響力心理學原則。</li>
+                                <li>能區分不同類型的釣魚攻擊，並進行郵件標頭的初步分析。</li>
+                                <li>能識別同形異義字等進階釣魚技巧。</li>
+                                <li>能從技術與心理層面撰寫釣魚郵件分析報告。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4 class="text-lg font-semibold text-slate-800 mb-4">【第三堂課】手機安全攻防戰：你的App正在監視你嗎？</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <strong class="text-slate-700">學習內容 (108課綱對應)：</strong>
+                            <p class="text-slate-600 pl-4"><span class="curriculum-code">．科-J-A1</span> 資訊系統（行動裝置）與網路服務的基本概念與應用。</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-700">學習表現 (108課綱對應)：</strong>
+                             <p class="text-slate-600 pl-4"><span class="curriculum-code">．科U-B1</span> 具備安全、負責任的資訊科技使用行為與態度。<br><span class="curriculum-code">．科P-A3</span> 辨識、分析問題，並利用資訊科技工具解決問題。</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-700">教學目標：</strong>
+                            <ul class="list-decimal list-inside pl-4 text-slate-600 space-y-1 mt-1">
+                                <li>能解釋「最小權限原則」並分析權限濫用鏈。</li>
+                                <li>能說明中間人攻擊的基本原理，並懂得檢查網站憑證。</li>
+                                <li>能使用線上工具分析App內嵌的追蹤器與權限。</li>
+                                <li>能辨識多種類型的惡意QR Code。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4 class="text-lg font-semibold text-slate-800 mb-4">【第四堂課】攻防演練場：網路世界的矛與盾</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <strong class="text-slate-700">學習內容 (108課綱對應)：</strong>
+                            <p class="text-slate-600 pl-4"><span class="curriculum-code">．科-J-A1</span> 網路服務的基本概念（如IP位址、封包）。</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-700">學習表現 (108課綱對應)：</strong>
+                            <p class="text-slate-600 pl-4"><span class="curriculum-code">．科P-A3</span> 辨識、分析問題，並利用資訊科技工具處理、解決問題。</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-700">教學目標：</strong>
+                            <ul class="list-decimal list-inside pl-4 text-slate-600 space-y-1 mt-1">
+                                <li>能簡述TCP/IP模型與DNS的角色。</li>
+                                <li>能初步理解SQL注入等網頁應用程式攻擊概念。</li>
+                                <li>能完成多種類型（Web, Crypto, Stego）的CTF挑戰。</li>
+                                <li>能體會「駭客思維」在防禦工作中的重要性。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tab 2: 第一堂課 -->
+            <div id="tab2" class="tab-content">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4">【第一堂課】資安初體驗：數位足跡與隱私保衛戰</h2>
+                <div class="card">
+                    <h3 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        教學活動描述
+                    </h3>
+                    <div class="table-responsive">
+                        <table class="w-full text-sm border border-slate-200 rounded-lg">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th class="w-1/6">時間分配</th>
+                                    <th class="w-2/6">活動流程</th>
+                                    <th class="w-3/6">教學說明 (擴充內容版本)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-slate-200">
+                                <tr><td>5分鐘</td><td><strong>引起動機：課程介紹</strong></td><td>播放一則近期與個資外洩或帳號被盜相關的新聞短片。提問：「你有收過詐騙簡訊嗎？」「擔心自己的遊戲或社群帳號被盜嗎？」引導學生思考資安與生活的關聯，並介紹四堂課的內容。</td></tr>
+                                <tr><td>20分鐘</td><td><strong>主題講授：數位世界的你 (深度版)</strong></td><td>1. <span class="highlight">資安的核心原則：</span> 除了介紹CIA三要素，擴充介紹「AAA」：認證、授權、紀錄。<br>2. <span class="highlight">數位足跡與OSINT初探：</span> 深入探討「數據代理商」，介紹OSINT概念與Google Dorking語法，並現場使用EXIF檢視工具分析照片元數據。<br>3. <span class="highlight">密碼學的基石：</span> 強調「密碼的熵」與密碼短語，簡介字典攻擊、暴力破解與「憑證填充」攻擊，並解釋不同2FA方式的安全性層級差異。</td></tr>
+                                <tr><td>20分鐘</td><td><strong>實作活動：OSINT攻防演練</strong></td><td>1. <span class="highlight">密碼強度與破解模擬：</span> 使用`Have I Been Pwned`的密碼檢查功能，查詢密碼是否出現於資料外洩事件中，並設計「密碼短語」。<br>2. <span class="highlight">虛構人物情報搜集挑戰：</span> 分組利用OSINT技巧（Google Dorking、反向圖片搜尋、EXIF檢視），搜集老師提供的虛構人物個資或Flag。</td></tr>
+                                <tr><td>5分鐘</td><td><strong>總結與預告</strong></td><td>總結數位足跡的廣泛性、高強度密碼策略與多因子驗證的重要性。預告下堂課將探討社交工程的心理學。</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: 第二堂課 -->
+            <div id="tab3" class="tab-content">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4">【第二堂課】看不見的陷阱：社交工程與網路釣魚</h2>
+                <div class="card">
+                     <h3 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        教學活動描述
+                    </h3>
+                    <div class="table-responsive">
+                       <table class="w-full text-sm border border-slate-200 rounded-lg">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th class="w-1/6">時間分配</th>
+                                    <th class="w-2/6">活動流程</th>
+                                    <th class="w-3/6">教學說明 (擴充內容版本)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-slate-200">
+                                <tr><td>5分鐘</td><td><strong>複習與引起動機</strong></td><td>快速回顧密碼與OSINT。播放一段「鯨釣」(Whaling)攻擊或CEO詐騙的真實案例影片，說明攻擊者如何繞過技術防禦。</td></tr>
+                                <tr><td>20分鐘</td><td><strong>主題講授：人性的駭客 (心理學分析)</strong></td><td>1. <span class="highlight">社交工程的心理學原理：</span> 引入羅伯特·席爾迪尼的「影響力六大法則」，並逐一解釋如何被應用在詐騙情境中。<br>2. <span class="highlight">網路釣魚的進階剖析：</span> 解釋釣魚類型光譜（一般、魚叉式、鯨釣），介紹Vishing與Smishing，並教導如何檢視郵件標頭與識別同形異義字攻擊。<br>3. <span class="highlight">惡意軟體的動物園：</span> 簡介勒索軟體、間諜軟體、廣告軟體、木馬程式、鍵盤側錄程式等。</td></tr>
+                                <tr><td>20分鐘</td><td><strong>實作活動：進階釣魚郵件分析挑戰賽</strong></td><td>1. <span class="highlight">案例升級：</span> 提供初、中、高不同等級的釣魚郵件範本。<br>2. <span class="highlight">分析報告：</span> 要求各組撰寫簡短分析報告，將案例對應到社交工程心理學原則。<br>3. <span class="highlight">加分題：</span> 提供郵件標頭，讓學生找出可疑之處。</td></tr>
+                                <tr><td>5分鐘</td><td><strong>總結與預告</strong></td><td>強調「零信任」與「多方查證」的重要性。預告下堂課將聚焦於手機與無線網路安全。</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: 第三堂課 -->
+            <div id="tab4" class="tab-content">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4">【第三堂課】手機安全攻防戰：你的App正在監視你嗎？</h2>
+                <div class="card">
+                    <h3 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        教學活動描述
+                    </h3>
+                    <div class="table-responsive">
+                        <table class="w-full text-sm border border-slate-200 rounded-lg">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th class="w-1/6">時間分配</th>
+                                    <th class="w-2/6">活動流程</th>
+                                    <th class="w-3/6">教學說明 (擴充內容版本)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-slate-200">
+                                <tr><td>5分鐘</td><td><strong>複習與引起動機</strong></td><td>複習社交工程的心理學技巧。提問：「除了被動受騙，我們是否可能『主動』引狼入室？」</td></tr>
+                                <tr><td>15分鐘</td><td><strong>主題講授：口袋裡的危機 (深度剖析)</strong></td><td>1. <span class="highlight">App權限與最小權限原則：</span> 深入探討「最小權限原則」，說明權限濫用鏈，並介紹零日漏洞概念。<br>2. <span class="highlight">無線網路的風險：</span> 透過圖解解釋ARP欺騙原理，教導如何檢查網站憑證，並介紹QR Code的多重威脅。</td></tr>
+                                <tr><td>20分鐘</td><td><strong>實作活動(一)：手機App威脅狩獵</strong></td><td>1. <span class="highlight">App權限審計：</span> 使用「隱私儀表板」找出背景頻繁定位、擁有多項危險權限的App，並嘗試關閉非必要權限。<br>2. <span class="highlight">行動應用程式分析(Android)：</span> 使用`Exodus Privacy`等線上工具，上傳.apk檔分析其內嵌的追蹤器與權限。</td></tr>
+                                <tr><td>5分鐘</td><td><strong>實作活動(二)：安全 vs. 惡意QR Code辨識</strong></td><td>提供安全、惡意釣魚、觸發Wi-Fi連接等多種類型的QR Code讓學生辨識與討論。</td></tr>
+                                <tr><td>5分鐘</td><td><strong>總結與預告</strong></td><td>總結手機安全三原則，強調便利性與安全風險的權衡。預告下堂課將進入CTF攻防演練。</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 5: 第四堂課 -->
+            <div id="tab5" class="tab-content">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4">【第四堂課】攻防演練場：網路世界的矛與盾</h2>
+                <div class="card">
+                    <h3 class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        教學活動描述
+                    </h3>
+                    <div class="table-responsive">
+                        <table class="w-full text-sm border border-slate-200 rounded-lg">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th class="w-1/6">時間分配</th>
+                                    <th class="w-2/6">活動流程</th>
+                                    <th class="w-3/6">教學說明 (擴充內容版本)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-slate-200">
+                                <tr><td>5分鐘</td><td><strong>複習與引起動機</strong></td><td>快速回顧防禦技巧。介紹CTF是全球資安人才培養的重要模式。</td></tr>
+                                <tr><td>15分鐘</td><td><strong>主題講授：網路攻防速覽 (技術導向)</strong></td><td>1. <span class="highlight">網路世界的溝通模型：</span> 擴充TCP/IP模型概念，並提及DNS污染/劫持。<br>2. <span class="highlight">常見網路攻擊手法：</span> 區分不同類型的DDoS攻擊，並用圖示入門SQL注入概念。<br>3. <span class="highlight">關鍵防禦工事：</span> 簡介防火牆(Firewall)與網頁應用程式防火牆(WAF)的差異。</td></tr>
+                                <tr><td>25分鐘</td><td><strong>實作活動：線上CTF奪旗挑戰賽</strong></td><td>1. <span class="highlight">平台與工具介紹：</span> 介紹picoCTF等平台與瀏覽器開發者工具、Base64解碼網站等。<br>2. <span class="highlight">多元題目挑戰：</span> 提供Web（Cookie修改）、Crypto（凱撒密碼）、Steganography（圖片屬性藏密）、General Skills（常用Port號）等多種類型題目供學生分組挑戰。</td></tr>
+                                <tr><td>5分鐘</td><td><strong>課程總結與未來展望</strong></td><td>總結所學，再次強調「駭客思維」的重要性，並推薦OWASP、DEF CON等社群與活動，為學生指出未來可持續學習的道路。</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for tab functionality
+        const tabs = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Deactivate all tabs and content
+                tabs.forEach(item => item.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Activate the clicked tab and its content
+                const targetTab = tab.dataset.tab;
+                const targetContent = document.getElementById(targetTab);
+                
+                tab.classList.add('active');
+                targetContent.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
